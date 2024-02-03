@@ -1,0 +1,90 @@
+---
+// import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SideBar from "../components/SideBar.astro";
+import {ViewTransitions} from "astro:transitions";
+
+import {SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API, SITE_CREATOR, GITHUB_URL} from "../config";
+import BaseHead from "../components/BaseHead.astro";
+import Theme from "../components/ThemeChange.astro";
+
+const {
+    image,
+    title = "Alessandro Incantalupo",
+    description = "Alessandro Incantalupo's personal portfolio showcasing his skills, experiences, and projects as a Software Engineer at Accenture. Connect with me today!",
+    includeSidebar = true,
+    sideBarActiveItemID,
+    ogType,
+} = Astro.props;
+---
+<html lang="en" class="min-h-screen justify-between">
+<BaseHead title={title} description={description} image={image} , ogType={ogType}>
+    {TRANSITION_API &&
+            <ViewTransitions/>}
+    <script>
+        function setTheme(doc) {
+            const theme_selectors = doc.querySelectorAll("#theme-selector div[data-theme]");
+            const theme = window.localStorage.getItem("data-theme");
+
+            if (theme) {
+                updateTheme(doc, theme);
+            } else {
+                updateTheme(doc, "lofi");
+            }
+        }
+
+        function updateTheme(doc, newTheme) {
+            doc.querySelector("html").setAttribute("data-theme", newTheme);
+            window.localStorage.setItem("data-theme", newTheme);
+        }
+
+        function changeThemeBehavior(doc) {
+            const theme_selectors = doc.querySelectorAll("#theme-selector div[data-theme]");
+            theme_selectors.forEach((selector) => {
+                    selector.addEventListener("click", () => {
+                            updateTheme(doc, selector.getAttribute("data-theme"));
+                        }
+                    );
+                }
+            );
+        }
+
+        setTheme(document);
+        changeThemeBehavior(document);
+
+        document.addEventListener("astro:before-swap", (ev) => {
+                setTheme(ev.newDocument);
+            }
+        );
+
+        document.addEventListener("astro:after-swap", () => changeThemeBehavior(document));
+    </script>
+</BaseHead>
+<body class="flex flex-col min-h-screen justify-between">
+<Header title={SITE_CREATOR}>
+
+</Header>
+<div class="bg-base-100 drawer lg:drawer-open">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle"/>
+    <div class="drawer-content bg-base-100 flex flex-col justify-between align-middle min-h-screen">
+        <Theme>
+
+        </Theme>
+        <div class="md:flex md:justify-center">
+            <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw] flex-grow">
+                <slot/>
+            </main>
+        </div>
+        <Footer gitHubUrl={GITHUB_URL} siteCreator={SITE_CREATOR}/>
+    </div>
+    {includeSidebar &&
+            <SideBar sideBarActiveItemID={sideBarActiveItemID}/>}
+</div>
+</body>
+</html>
+
+
+
+
+
