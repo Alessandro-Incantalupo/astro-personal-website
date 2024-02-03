@@ -1,0 +1,39 @@
+---
+import ThemeChange from "../components/ThemeChange.astro";
+import Head from "../components/Head.astro";
+---
+<html lang="en">
+<Head
+
+>
+    <script is:inline>
+        // ☝️ This script prevent the FART effect.
+        if (localStorage.getItem("theme") === null) {
+            document.documentElement.setAttribute("data-theme", "forest");
+        } else
+            document.documentElement.setAttribute(
+                "data-theme",
+                localStorage.getItem("theme")
+            );
+    </script>
+    <script>
+        import {themeChange} from "theme-change";
+
+        themeChange();
+        // 👆 you could import the CDN directly instead of these two lines
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</Head>
+<body class="flex flex-col items-center h-screen h-[100svh]">
+<div class="w-full max-w-3xl flex-grow">
+    <ThemeChange/>
+    <div class="p-4 pb-10">
+        <div class="prose lg:prose-lg">
+            <slot/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
