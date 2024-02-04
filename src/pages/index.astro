@@ -1,9 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-// import {getCollection} from "astro:content";
 import {SITE_CREATOR} from "../config";
-// const projects = await getCollection("projects");
 ---
 
 
@@ -22,9 +19,6 @@ import {SITE_CREATOR} from "../config";
         </div>
         <div class="mt-8">
             <a class="btn" href="https://www.linkedin.com/in/alessandro-incantalupo" target="_blank"> Let's connect!</a>
-            <!--<a href="/contacts" target="" class="btn btn-outline ml-5">-->
-            <!--    Send me a message-->
-            <!--</a>-->
             <a href="mailto:alessandro.incantalupo@gmail.com" referrerpolicy="no-referrer-when-downgrade"
                target="_blank" class="btn btn-outline ml-5">
                 Send me a message
@@ -34,23 +28,6 @@ import {SITE_CREATOR} from "../config";
 
     </div>
 
-
-    <!--<div>-->
-    <!--    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>-->
-    <!--</div>-->
-
-    <!--{projects.map(project => (-->
-    <!--        <div>-->
-    <!--            <HorizontalCard-->
-    <!--                    title={project.data.title}-->
-    <!--                    img={project.data.img}-->
-    <!--                    desc={project.data.desc}-->
-    <!--                    url={project.data.url}-->
-    <!--                    badge={project.data.badge}-->
-    <!--            />-->
-    <!--            <div class="divider my-0"></div>-->
-    <!--        </div>-->
-    <!--))}-->
 </BaseLayout>
 
 

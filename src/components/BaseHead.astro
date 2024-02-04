@@ -34,25 +34,48 @@ const {title, description, image = "/social_img.webp", ogType = "website"} = Ast
     <meta property="twitter:description" content={description}/>
     <meta property="twitter:image" content={new URL(image, Astro.url)}/>
 
+    <meta name="astro-view-transitions-enabled" content="true"/>
+    <meta name="astro-view-transitions-fallback" content="animate"/>
 
-    <!--<script is:inline>-->
-    <!--    // ☝️ This script prevent the FART effect.-->
-    <!--    if (localStorage.getItem("theme") === null) {-->
-    <!--        document.documentElement.setAttribute("data-theme", "light");-->
-    <!--    } else-->
-    <!--        document.documentElement.setAttribute(-->
-    <!--            "data-theme",-->
-    <!--            localStorage.getItem("theme")-->
-    <!--        );-->
-    <!--    // "theme" LocalStorage value is set by the package to remember user preference.-->
-    <!--    // The value is checked and applyed before rendering anything.-->
-    <!--</script>-->
-    <!--<script>-->
-    <!--    import {themeChange} from "theme-change";-->
 
-    <!--    themeChange();-->
-    <!--    // 👆 you could import the CDN directly instead of these two lines-->
-    <!--</script>-->
+    <script>
+        function setTheme(doc) {
+            const theme_selectors = doc.querySelectorAll("#theme-selector div[data-theme]");
+            const theme = window.localStorage.getItem("data-theme");
+
+            if (theme) {
+                updateTheme(doc, theme);
+            } else {
+                updateTheme(doc, "lofi");
+            }
+        }
+
+        function updateTheme(doc, newTheme) {
+            doc.querySelector("html").setAttribute("data-theme", newTheme);
+            window.localStorage.setItem("data-theme", newTheme);
+        }
+
+        function changeThemeBehavior(doc) {
+            const theme_selectors = doc.querySelectorAll("#theme-selector div[data-theme]");
+            theme_selectors.forEach((selector) => {
+                    selector.addEventListener("click", () => {
+                            updateTheme(doc, selector.getAttribute("data-theme"));
+                        }
+                    );
+                }
+            );
+        }
+
+        setTheme(document);
+        changeThemeBehavior(document);
+
+        document.addEventListener("astro:before-swap", (ev) => {
+                setTheme(ev.newDocument);
+            }
+        );
+
+        document.addEventListener("astro:after-swap", () => changeThemeBehavior(document));
+    </script>
 
 </head>
 
