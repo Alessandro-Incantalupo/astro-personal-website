@@ -39,7 +39,7 @@ const {title, description, image = "/social_img.webp", ogType = "website"} = Ast
 
 
     <script>
-        function setTheme(doc) {
+        function setTheme(doc: Document) {
             const theme_selectors = doc.querySelectorAll("#theme-selector div[data-theme]");
             const theme = window.localStorage.getItem("data-theme");
 
@@ -50,16 +50,19 @@ const {title, description, image = "/social_img.webp", ogType = "website"} = Ast
             }
         }
 
-        function updateTheme(doc, newTheme) {
-            doc.querySelector("html").setAttribute("data-theme", newTheme);
+        function updateTheme(doc: Document, newTheme: string) {
+            const htmlElement = doc.querySelector("html");
+            if (htmlElement) {
+                htmlElement.setAttribute("data-theme", newTheme);
+            }
             window.localStorage.setItem("data-theme", newTheme);
         }
 
-        function changeThemeBehavior(doc) {
+        function changeThemeBehavior(doc: Document) {
             const theme_selectors = doc.querySelectorAll("#theme-selector div[data-theme]");
-            theme_selectors.forEach((selector) => {
+            theme_selectors.forEach((selector: Element) => {
                     selector.addEventListener("click", () => {
-                            updateTheme(doc, selector.getAttribute("data-theme"));
+                            updateTheme(doc, selector.getAttribute("data-theme") as string);
                         }
                     );
                 }
@@ -69,10 +72,9 @@ const {title, description, image = "/social_img.webp", ogType = "website"} = Ast
         setTheme(document);
         changeThemeBehavior(document);
 
-        document.addEventListener("astro:before-swap", (ev) => {
-                setTheme(ev.newDocument);
-            }
-        );
+        document.addEventListener("astro:after-swap", () => {
+            setTheme(document);
+        });
 
         document.addEventListener("astro:after-swap", () => changeThemeBehavior(document));
     </script>
