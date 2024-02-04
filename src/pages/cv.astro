@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/CV/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">Profile</div>
+    </div>
+
+    <div class="mb-10 text-justify">
+        Passionate about challenges and problem solving, I try to improve myself every day by learning new things and
+        experimenting with new technologies. I am a very curious person and I like to understand how things work and
+        why they work in a certain way. I am a very sociable person and I like to work in a team, but I am also able to
+        work independently. I am a very determined person and I always set to achieve new goals.
+    </div>
+
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">Education</div>
+    </div>
+
+    <div class="time-line-container grid gap-4 mb-10">
+        <TimeLineElement
+                title="ITIS G. Cardano, Italy"
+                subtitle="High School Diploma in Chemistry"
+        />
+        <TimeLineElement
+                title="University of Pavia, Italy"
+                subtitle="Mathematics"
+        />
+    </div>
+
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">Experience</div>
+    </div>
+
+    <div class="time-line-container mb-10">
+        <TimeLineElement
+                title="Junior Full Stack Developer"
+                subtitle="From Nov 2022 to Feb 2023 at Elab, A.S. Watson Group"
+        >
+            I was exposed to Java, MySQL, versioning systems (Git), and the Spring framework. I also learned how to
+            start
+            a project from scratch and how to work in a team.
+        </TimeLineElement>
+        <TimeLineElement
+                title="Junior Front End Developer"
+                subtitle="From Nov Feb 2023 to Aug 2023 at Elab, A.S. Watson Group"
+        >
+            I was exposed to Angular, TypeScript, SCSS, HTML, JavaScript and deepened my knowledge of Git and working
+            with it.
+        </TimeLineElement>
+        <TimeLineElement
+                title="Custom Software Engineering Analyst"
+                subtitle="From Sep 2023 to Present at Accenture"
+        >
+            Started developing in Angular 15 for a big project (State level client) with a team of 10 people. I was
+            exposed to the Agile methodology
+            I'm growing my knowledge of Angular and TypeScript. I also have learned to use Bootstrap for template
+            styling.
+        </TimeLineElement>
+    </div>
+
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">Certifications</div>
+    </div>
+
+    <ul class="list-disc mx-6 mb-10 grid gap-2">
+        <li>
+            <a href="#" target="_blank"> Workshop Samsung Innovation Camp</a>
+        </li>
+        <li>
+            <a href="#" target="_blank"> Advanced Dialogue Facilitation Training, Soliya</a>
+        </li>
+    </ul>
+
+    <div class="mb-5">
+        <div class="text-3xl w-full font-bold">Skills</div>
+    </div>
+
+    <ul class="list-disc md:columns-5 columns-2 mx-6">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>SCSS</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>Angular</li>
+        <li>Java</li>
+    </ul>
+</BaseLayout>
