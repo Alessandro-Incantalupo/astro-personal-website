@@ -1,12 +1,13 @@
 ---
+import ThemeSelector from "./ThemeSelector.astro";
 const {title} = Astro.props;
 ---
 
 
 <header
-        class="sticky lg:hidden top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content shadow-sm"
+        class="sticky top-0 z-30 flex lg:hidden w-full h-16 justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content shadow-sm"
 >
-    <div class="navbar">
+    <div class="navbar justify-end">
         <div class="navbar-start">
             <label for="my-drawer" class="btn btn-square btn-ghost">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -20,6 +21,14 @@ const {title} = Astro.props;
         <div class="navbar-center">
             <a class="btn btn-ghost normal-case text-2xl" href="/">{title}</a>
         </div>
-        <div class="navbar-end"></div>
+        <div class="navbar-end lg:inline">
+            <ThemeSelector>
+            </ThemeSelector>
+        </div>
     </div>
 </header>
+
+<div class="navbar-end hidden md:inline z-10 absolute top-0 right-0">
+    <ThemeSelector>
+    </ThemeSelector>
+</div>
