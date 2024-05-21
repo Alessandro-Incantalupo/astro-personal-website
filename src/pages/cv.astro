@@ -1,6 +1,9 @@
 ---
+import {changeLanguage} from "i18next";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/CV/TimeLine.astro";
+
+changeLanguage("en");
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
@@ -36,7 +39,7 @@ import TimeLineElement from "../components/CV/TimeLine.astro";
 
     <div class="time-line-container mb-10">
         <TimeLineElement
-                title="Junior Full Stack Developer"
+                title="Full Stack Developer"
                 subtitle="From Nov 2022 to Feb 2023 at Elab, A.S. Watson Group"
         >
             I was exposed to Java, MySQL, versioning systems (Git), and the Spring framework. I also learned how to
@@ -44,8 +47,8 @@ import TimeLineElement from "../components/CV/TimeLine.astro";
             a project from scratch and how to work in a team.
         </TimeLineElement>
         <TimeLineElement
-                title="Junior Front End Developer"
-                subtitle="From Nov Feb 2023 to Aug 2023 at Elab, A.S. Watson Group"
+                title="Front End Developer"
+                subtitle="From Feb 2023 to Aug 2023 at Elab, A.S. Watson Group"
         >
             I was exposed to Angular, TypeScript, SCSS, HTML, JavaScript and deepened my knowledge of Git and working
             with it.
