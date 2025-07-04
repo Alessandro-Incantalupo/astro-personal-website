@@ -49,7 +49,7 @@ export const cv_texts = {
     description: `Angular Frontend Developer specializing in modern web development with a focus on speed, scalability, and maintainability. 
 I build enterprise-grade applications using Angular 15–19, standalone components, Signal Store, and reactive architecture. 
 I’m passionate about clean code, modular design, and continuously upskilling in state-of-the-art web technologies. 
-Open to remote contracting opportunities in the UK/US market, with an emphasis on digital engagement and long-term quality.`,
+Open to remote contracting opportunities across Europe, the UK, or globally, with an emphasis on digital engagement and long-term quality.`,
   },
   education: {
     title: "Education",
@@ -114,8 +114,8 @@ export const home_texts = {
   role: "Angular Frontend Developer",
   description: `I'm a Frontend Developer based in Italy, specializing in Angular 15–19, micro frontends, and modern web architecture. 
 Currently working on a national-scale enterprise project using the latest Angular features like standalone components, Signals, and zoneless setups.
-In my spare time, I'm building an Angular Admin Dashboard and continuously exploring new tools like Astro and TailwindCSS.
-I'm looking for remote contracting roles in the UK/US with a focus on high-impact, long-term projects.`,
+In my spare time, I'm building an Angular Admin Dashboard and exploring new technologies like Astro and TailwindCSS.
+I'm open to remote contracting roles across Europe, the UK, and beyond—especially those focused on high-impact, long-term digital platforms.`,
   connect: "Let's connect!",
   message: "Send me a message",
 };
