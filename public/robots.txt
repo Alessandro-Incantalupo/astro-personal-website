@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://alessandroincantalupo.com/sitemap-index.xml
+Sitemap: https://www.alessandroincantalupo.com/sitemap-index.xml
