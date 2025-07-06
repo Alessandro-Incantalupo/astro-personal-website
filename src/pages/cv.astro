@@ -46,11 +46,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">{texts.skills.title}</div>
   </div>
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
+  <ul class="list-disc md:columns-5 columns-2 mx-6 mb-10">
     {texts.skills.items.map(item => (
       <li>{item}</li>
     ))}
-      <div class="mb-5">
+  </ul>
+
+  <div class="mb-5">
     <div class="text-3xl w-full font-bold">{texts.learning.title}</div>
   </div>
   <ul class="list-disc md:columns-2 columns-1 mx-6 mb-10">
