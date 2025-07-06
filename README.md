@@ -1,54 +1,203 @@
-# Astro Starter Kit: Basics
+# Personal Portfolio Website
 
-```sh
-npm create astro@latest -- --template basics
+> **Modern Frontend Developer Portfolio** built with Astro, TypeScript, and TailwindCSS
+
+A responsive, theme-customizable personal portfolio website showcasing my skills as an Angular Frontend Developer. Built with modern web technologies and best practices to demonstrate technical proficiency and attention to detail.
+
+## 🌟 Live Demo
+
+Visit the live portfolio: https://www.alessandroincantalupo.com/
+
+## 🎯 Project Purpose
+
+This portfolio serves as a comprehensive showcase of my frontend development capabilities, featuring:
+
+- **Technical Skills**: Angular, TypeScript, TailwindCSS, Astro
+- **Professional Experience**: Current role as Custom Software Engineering Analyst at Accenture
+- **Modern Web Standards**: Responsive design, accessibility, performance optimization
+- **Code Quality**: Clean architecture, component-based design, type safety
+
+## 🚀 Key Features
+
+### 🎨 Dynamic Theme System
+
+- **30+ Professional Themes**: Including corporate, dark, light, cyberpunk, and more
+- **Real-time Theme Switching**: Instant preview with localStorage persistence
+- **Theme Persistence**: User preferences saved across sessions
+
+### 📱 Responsive Design
+
+- **Mobile-First Approach**: Optimized for all device sizes
+- **Adaptive Navigation**: Collapsible sidebar for mobile, fixed sidebar for desktop
+- **Touch-Friendly**: Optimized for mobile interactions
+
+### ⚡ Performance Optimized
+
+- **Astro Framework**: Static site generation with island architecture
+- **Optimized Images**: WebP format with proper sizing
+- **Fast Loading**: Minimal JavaScript, efficient CSS
+
+### 🎯 Professional Sections
+
+- **Home**: Introduction and key highlights
+- **CV/Resume**: Detailed experience, education, and skills
+- **Contacts**: Professional contact information
+- **404 Page**: Custom error handling
+
+## 🛠️ Technical Stack
+
+| Technology           | Purpose               | Version  |
+| -------------------- | --------------------- | -------- |
+| **Astro**            | Static Site Generator | ^4.3.2   |
+| **TypeScript**       | Type Safety           | ^5.3.3   |
+| **TailwindCSS**      | Styling Framework     | ^3.4.1   |
+| **DaisyUI**          | Component Library     | ^4.6.1   |
+| **View Transitions** | Smooth Navigation     | Built-in |
+
+## 📁 Project Architecture
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── BaseHead.astro   # SEO and theme management
+│   ├── Header.astro     # Navigation header
+│   ├── SideBar.astro    # Navigation sidebar
+│   ├── ThemeSelector.astro  # Theme switching component
+│   ├── CV/              # CV-specific components
+│   └── SidebarFooter/   # Social media icons
+├── layouts/
+│   └── BaseLayout.astro # Main layout template
+├── pages/               # Route pages
+│   ├── index.astro      # Home page
+│   ├── cv.astro         # Resume/CV page
+│   ├── contacts.astro   # Contact information
+│   └── 404.astro        # Error page
+├── config.ts            # Site configuration and content
+└── env.d.ts            # TypeScript declarations
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🎨 Theme System Implementation
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The theme system demonstrates advanced frontend skills:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```typescript
+// Dynamic theme switching with localStorage persistence
+function updateTheme(doc: Document, newTheme: string) {
+  const htmlElement = doc.querySelector("html");
+  if (htmlElement) {
+    htmlElement.setAttribute("data-theme", newTheme);
+  }
+  window.localStorage.setItem("data-theme", newTheme);
+}
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Features 30+ carefully curated themes from DaisyUI, each with:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Consistent color schemes
+- Professional appearance
+- Accessibility compliance
+- Real-time preview
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 💼 Professional Content Management
 
-## 🧞 Commands
+All content is centrally managed in [`config.ts`](src/config.ts), showcasing:
 
-All commands are run from the root of the project, from a terminal:
+```typescript
+export const cv_texts = {
+  profile: {
+    /* Professional summary */
+  },
+  experience: {
+    /* Detailed work history */
+  },
+  education: {
+    /* Academic background */
+  },
+  skills: {
+    /* Technical competencies */
+  },
+};
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🔧 Development Features
 
-## 👀 Want to learn more?
+### Component Architecture
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Astro Components**: Server-side rendering with minimal client JavaScript
+- **TypeScript Integration**: Full type safety across the application
+- **Modular Design**: Reusable, maintainable component structure
+
+### Performance Optimizations
+
+- **Static Generation**: Pre-built HTML for fast loading
+- **Image Optimization**: WebP format with responsive sizing
+- **Minimal JavaScript**: Only essential client-side code
+
+### SEO & Accessibility
+
+- **Meta Tags**: Complete OpenGraph and Twitter Card support
+- **Semantic HTML**: Proper heading hierarchy and ARIA labels
+- **Responsive Images**: Optimized for all screen sizes
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/Alessandro-Incantalupo/astro-personal-website
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🎯 Skills Demonstrated
+
+### Frontend Development
+
+- ✅ **Modern Frameworks**: Astro, Angular experience
+- ✅ **Styling**: TailwindCSS, responsive design
+- ✅ **TypeScript**: Advanced type safety
+- ✅ **Performance**: Optimization techniques
+
+### Software Engineering
+
+- ✅ **Architecture**: Component-based design
+- ✅ **Code Quality**: Clean, maintainable code
+- ✅ **Version Control**: Git best practices
+- ✅ **Documentation**: Comprehensive README
+
+### UI/UX Design
+
+- ✅ **Responsive Design**: Mobile-first approach
+- ✅ **Accessibility**: WCAG compliance
+- ✅ **User Experience**: Intuitive navigation
+- ✅ **Visual Design**: Professional appearance
+
+## 🔗 Connect With Me
+
+- **Email**: [alessandro.incantalupo@gmail.com](mailto:alessandro.incantalupo@gmail.com)
+- **LinkedIn**: [Alessandro Incantalupo](https://www.linkedin.com/in/alessandro-incantalupo/)
+- **GitHub**: [Alessandro-Incantalupo](https://github.com/Alessandro-Incantalupo)
+-
+
+## 🚀 Future Roadmap
+
+- **Vue.js Integration**: Planning to learn Vue 3 and Composition API
+- **Full-Stack Expansion**: Exploring Node.js and modern backend technologies
+- **Advanced Animations**: Implementing GSAP and Framer Motion for enhanced UX
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+_Built with ❤️ by Alessandro Incantalupo | Frontend Developer_

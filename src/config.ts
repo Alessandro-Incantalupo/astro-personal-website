@@ -48,7 +48,7 @@ export const cv_texts = {
     title: "Profile",
     description: `Angular Frontend Developer specializing in modern web development with a focus on speed, scalability, and maintainability. 
 I build enterprise-grade applications using Angular 15–19, standalone components, Signal Store, and reactive architecture. 
-I’m passionate about clean code, modular design, and continuously upskilling in state-of-the-art web technologies. 
+I'm passionate about clean code, modular design, and continuously upskilling in state-of-the-art web technologies including Vue.js. 
 Open to remote contracting opportunities across Europe, the UK, or globally, with an emphasis on digital engagement and long-term quality.`,
   },
   education: {
@@ -104,6 +104,16 @@ Worked closely with UI/UX teams and followed Agile delivery rhythms including gr
       "Unit & Integration Testing",
       "HTML5 & CSS3",
       "Version Control (Git)",
+      "Vue.js (Learning)",
+    ],
+  },
+  learning: {
+    title: "Currently Learning",
+    items: [
+      "Vue.js 3 & Composition API",
+      "Advanced TypeScript patterns",
+      "Micro-frontend architecture",
+      "Performance optimization techniques",
     ],
   },
 };
@@ -114,7 +124,7 @@ export const home_texts = {
   role: "Angular Frontend Developer",
   description: `I'm a Frontend Developer based in Italy, specializing in Angular 15–19, micro frontends, and modern web architecture. 
 Currently working on a national-scale enterprise project using the latest Angular features like standalone components, Signals, and zoneless setups.
-In my spare time, I'm building an Angular Admin Dashboard and exploring new technologies like Astro and TailwindCSS.
+In my spare time, I'm building an Angular Admin Dashboard and exploring new technologies like Astro, TailwindCSS, and Vue.js.
 I'm open to remote contracting roles across Europe, the UK, and beyond—especially those focused on high-impact, long-term digital platforms.`,
   connect: "Let's connect!",
   message: "Send me a message",
