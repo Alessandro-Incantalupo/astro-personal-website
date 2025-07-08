@@ -186,7 +186,6 @@ npm run preview
 - **Email**: [alessandro.incantalupo@gmail.com](mailto:alessandro.incantalupo@gmail.com)
 - **LinkedIn**: [Alessandro Incantalupo](https://www.linkedin.com/in/alessandro-incantalupo/)
 - **GitHub**: [Alessandro-Incantalupo](https://github.com/Alessandro-Incantalupo)
--
 
 ## 🚀 Future Roadmap
 
